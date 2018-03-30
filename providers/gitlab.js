@@ -11,7 +11,8 @@ class GitLab extends BaseProvider {
 
     static _formatAvatarURL(url) {
         if (!/^https?:\/\/|^\/\//i.test(url)) {
-            return "https://gitlab.com" + url;
+            // return "https://gitlab.com" + url;
+            return "https://git.cbex.xyz" + url;
         }
         return url;
     }

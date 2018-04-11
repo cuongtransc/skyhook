@@ -14,6 +14,7 @@ const providers = {
     codacy: require('./providers/codacy'),
     dockerhub: require('./providers/dockerhub'),
     gitlab: require('./providers/gitlab'),
+    gitlabError: require('./providers/gitlabError'),
     heroku: require('./providers/heroku'),
     jenkins: require('./providers/jenkins'),
     patreon: require('./providers/patreon'),

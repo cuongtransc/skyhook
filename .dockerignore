@@ -1,10 +1,33 @@
+# Docker
+Dockerfile
 .dockerignore
+0compose/
+
+# Git
 .git/
 .gitignore
-.glitch-assets
-.travis.yml
-Dockerfile
-License
-README.md
+.gitlab-ci.yml
+
+# IDE
+.idea/
+.vscode/
+.venv/
+
+# Temp
+tmp/
+
+# Ingore invoke tasks
+tasks.py
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cache
+.cache/
+node_modules/
+dist/
+
+# Unnecessary data
 docs/
-images/

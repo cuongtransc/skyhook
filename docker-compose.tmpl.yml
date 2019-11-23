@@ -1,0 +1,47 @@
+#
+# Source code address
+# https://hub.docker.com/u/cuongtransc/
+#
+# Syntax: https://docs.docker.com/compose/compose-file/
+#
+
+version: "2.4"
+
+x-default: &default
+    networks:
+        - comp_default
+    cpu_shares: 512
+    mem_limit: 100M
+    # memswap_limit: 0           # 0 MB SWAP
+    # privileged: true
+    restart: always
+    # stdin_open: true
+    # tty: true
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "100M"
+            max-file: "3"
+
+services:
+    skyhook:
+        << : *default
+        image: devopszcom/skyhook:0.1
+#        environment:
+#             - NODE_ENV=production
+        # ports:
+        #     - "8080:8080"
+        networks:
+            - traefik_network
+        hostname: skyhook
+        labels:
+            - "traefik.enable=true"
+            - "traefik.docker.network=traefik_network"
+
+            - "traefik.http.routers.devopsz.rule=Host(`skyhook.devopsz.com`)"
+            - "traefik.http.routers.devopsz.entrypoints=https"
+            - "traefik.http.routers.devopsz.tls.certresolver=ssl"
+
+networks:
+    traefik_network:
+        external: true

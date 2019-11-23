@@ -12,8 +12,10 @@ COPY package-lock.docker.json /usr/src/app/package-lock.json
 RUN npm install && npm cache clean --force
 COPY . /usr/src/app
 
-RUN mkdir dist
-COPY --from=buildenv /app/dist /usr/src/app/dist
+RUN npm run build
+
+# RUN mkdir dist
+# COPY --from=buildenv /app/dist /usr/src/app/dist
 
 EXPOSE 8080
 

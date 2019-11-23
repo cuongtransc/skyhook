@@ -1,7 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-from __future__ import print_function
 
 import json
 import logging
@@ -23,6 +21,7 @@ logger.addHandler(console_handler)
 # Common
 ##############################################################
 def get_version():
+    """Get version"""
     logger.info('Get version')
     with open('package.json') as fin:
         config = json.load(fin)
@@ -34,17 +33,17 @@ def get_version():
 
 @task
 def gen_package_dependencies_for_docker(c):
-    logger.info('Generate packages dependencies for Docker')
-
+    """Generate package dependencies for Docker"""
+    logger.info('Generate package dependencies for Docker')
     with open('package.json') as fin:
         config = json.load(fin)
 
         new_config = dict()
         new_config['license'] = config['license']
         new_config['dependencies'] = config['dependencies']
-        new_config['devDependencies'] = config['devDependencies']
+        new_config['devDependencies'] = config.get('devDependencies')
 
-        with open('package.{}.json'.format('docker'), 'w') as fout:
+        with open('package.docker.json', 'w') as fout:
             json.dump(new_config, fout, sort_keys=True,
                       indent=4, separators=(',', ': '))
 

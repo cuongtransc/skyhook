@@ -38,9 +38,9 @@ services:
             - "traefik.enable=true"
             - "traefik.docker.network=traefik_network"
 
-            - "traefik.http.routers.devopsz.rule=Host(`skyhook.devopsz.com`)"
-            - "traefik.http.routers.devopsz.entrypoints=https"
-            - "traefik.http.routers.devopsz.tls.certresolver=ssl"
+            - "traefik.http.routers.do-skyhook.rule=Host(`skyhook.devopsz.com`)"
+            - "traefik.http.routers.do-skyhook.entrypoints=https"
+            - "traefik.http.routers.do-skyhook.tls.certresolver=ssl"
 
 networks:
     traefik_network:

@@ -30,4 +30,8 @@ node_modules/
 dist/
 
 # Unnecessary data
+.glitch-assets
+.travis.yml
+Dockerfile
+README.md
 docs/

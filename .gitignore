@@ -56,5 +56,6 @@ package.docker.json
 package-lock.docker.json
 
 # Ignore for docker-compose
+docker-compose.yml
 docker-compose.override.yml
 docker-compose.override.*.yml
